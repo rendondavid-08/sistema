@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ZonaController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -167,7 +170,7 @@ Route::get('filtro7', function(){
 });
 
 Route::get('filtro8', function(){
-    $productos= DB::table('productos')
+    $productos= DB::table('productos') 
         ->select('codigo','descripcion','precio')
         ->whereNotBetween('precio', [2500,20000])
         ->get();
@@ -196,3 +199,7 @@ Route::get('leftjoin', function(){
         ->get();
     return $productos;
 });
+
+route::get('producto',[ProductoController::class,'index']);
+
+route::get('zona',[ZonaController::class,'index']);

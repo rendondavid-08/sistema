@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('precio', 12,2);
             $table->unsignedBigInteger('categoria_codigo');
             $table->timestamps();
-
+ 
             $table->foreign('categoria_codigo')
             ->references('codigo')
             ->on('categorias')
